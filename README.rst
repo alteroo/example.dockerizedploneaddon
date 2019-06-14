@@ -10,7 +10,7 @@ You have plonecli installed.
 
 How we did this
 ================
-For your own addon you will need to replace `example.dockerizedploneaddon` with
+For your own addon you will need to replace ``example.dockerizedploneaddon`` with
 the name of your addon.
 
 Create your addon
@@ -34,7 +34,7 @@ Use plonecli to build and server your addon
 
 "Dockerize" and distribute
 --------------------------------
-Do this by adding a `docker.cfg` file and a `Dockerfile` to your addon folder
+Do this by adding a ``docker.cfg`` file and a ``Dockerfile`` to your addon folder
 
 Contents of docker.cfg:
 ::
@@ -63,7 +63,7 @@ Contents of Dockerfile:
 
 Build your container
 ```````````````````````
-Once you have those two files run `docker build .`
+Once you have those two files, run ``docker build .``
 Here are some shortcut commands for building and launching a container
 ::
 
@@ -79,7 +79,7 @@ Register your repository with docker hub and connect it to github or bitbucket s
 
 Checkout this addon
 --------------------
-It doesn't really do anything but you can use docker to see it.
+This addon doesn't really do anything but you can use docker to see it.
 ::
 
    docker run -it -p 8080:8080 alteroo/example.dockerizedploneaddon
