@@ -1,4 +1,4 @@
-Plone provides a base docker image. With a little customisation, you can easily extend the base plone.docker image
+With a little customisation, you can easily extend the base _`plone.docker <https://github.com/plone/plone.docker>`_ image
 with custom addon code. This is a demo of how it might be used.
 
 Note: This addon doesn't do much and is mostly to demonstrate common ways of using the plone.docker image with a Plone addon.
