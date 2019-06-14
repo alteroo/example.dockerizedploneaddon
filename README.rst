@@ -17,7 +17,7 @@ Create your addon
 ---------------------------
 ::
   
-    plonecli create addon my.addon
+    plonecli create addon example.dockerizedploneaddon
 
 
 Day to day usage of your addon
@@ -74,7 +74,7 @@ Here are some shortcut commands for building and launching a container
 
 What next
 -----------
-Register your repository with docker hub so that it automatically builds new images every time you make changes.
+Register your repository with docker hub and connect it to github or bitbucket so that it automatically builds new images every time you make changes.
 
 
 Checkout this addon
