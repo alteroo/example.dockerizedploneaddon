@@ -83,7 +83,7 @@ Checkout this addon
 This addon doesn't really do anything but you can use docker to see it.
 ::
 
-   docker run -it -v $(pwd)/data:/data -p 8080:8080 alteroo/example.dockerizedploneaddon
+   docker run -it -p 8080:8080 alteroo/example.dockerizedploneaddon
 
 Now try it with some sample data
 -----------------------------------
@@ -91,6 +91,7 @@ Now try it with some sample data
 
    wget https://github.com/alteroo/example.dockerizedploneaddon/releases/download/v00data/data.tar.gz
    tar xf data.tar.gz
+   setfacl  -R -m u:500:rwX data
    docker run -it -v $(pwd)/data:/data -p 8080:8080 alteroo/example.dockerizedploneaddon
 
 When you visit ``localhost:8080`` you should see something like this:
