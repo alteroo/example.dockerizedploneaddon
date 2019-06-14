@@ -77,4 +77,9 @@ What next
 Register your repository with docker hub so that it automatically builds new images every time you make changes.
 
 
+Checkout this addon
+--------------------
+It doesn't really do anything but you can use docker to see it.
+::
 
+   docker run -it -p 8080:8080 alteroo/example.dockerizedploneaddon
