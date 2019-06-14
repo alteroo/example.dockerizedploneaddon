@@ -94,7 +94,7 @@ Now try it with some sample data
    setfacl  -R -m u:500:rwX data
    docker run -it -v $(pwd)/data:/data -p 8080:8080 alteroo/example.dockerizedploneaddon
 
-When you visit ``localhost:8080`` you should see something like this:
+When you visit ``localhost:8080/Plone`` you should see a slightly customised Plone site:
 
 .. image:: customisedplonescreen.png
 
