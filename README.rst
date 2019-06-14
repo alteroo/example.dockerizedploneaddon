@@ -1,4 +1,4 @@
-With a little customisation, you can easily extend the base _`plone.docker`_ image
+With a little customisation, you can easily extend the base `plone.docker`_ image
 with custom addon code. This is a demo of how it might be used.
 
 
