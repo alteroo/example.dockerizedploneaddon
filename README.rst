@@ -43,12 +43,12 @@ Contents of docker.cfg:
       extends = buildout.cfg
       eggs +=
               example.dockerizedploneaddon
-              user=admin:admin
-              develop = src/example.dockerizedploneaddon
-              [versions]
-              # plone.api = 1.5.1
-              [instance_base]
-              resources = ${buildout:directory}/resources
+      user=admin:admin
+      develop = src/example.dockerizedploneaddon
+      [versions]
+      # plone.api = 1.5.1
+      [instance_base]
+      resources = ${buildout:directory}/resources
 
 
 Contents of Dockerfile:
