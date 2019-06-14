@@ -1,72 +1,80 @@
-.. This README is meant for consumption by humans and pypi. Pypi can render rst files so please do not use Sphinx features.
-   If you want to learn more about writing documentation, please check out: http://docs.plone.org/about/documentation_styleguide.html
-   This text does not appear on pypi or github. It is a comment.
-
-============================
-example.dockerizedploneaddon
-============================
-
-Tell me what your product does
-
-Features
---------
-
-- Can be bullet points
+Plone provides a base docker image, which can be used for addon development.
+This is a demo of how it might be used.
 
 
-Examples
---------
 
-This add-on can be seen in action at the following sites:
-- Is there a page on the internet where everybody can see the features?
-
-
-Documentation
--------------
-
-Full documentation for end users can be found in the "docs" folder, and is also available online at http://docs.plone.org/foo/bar
+Assumptions
+=============
+You have plonecli installed.
 
 
-Translations
-------------
+How we did this
+================
+For your own addon you will need to replace `example.dockerizedploneaddon` with
+the name of your addon.
 
-This product has been translated into
-
-- Klingon (thanks, K'Plai)
-
-
-Installation
-------------
-
-Install example.dockerizedploneaddon by adding it to your buildout::
-
-    [buildout]
-
-    ...
-
-    eggs =
-        example.dockerizedploneaddon
+Create your addon
+---------------------------
+::
+  
+    plonecli create addon my.addon
 
 
-and then running ``bin/buildout``
+Day to day usage of your addon
+---------------------------------
+Use plonecli to build and server your addon
+::
+
+   cd example.dockerizedploneaddon
+   plonecli build --clean
+   plonecli serve
 
 
-Contribute
-----------
-
-- Issue Tracker: https://github.com/collective/example.dockerizedploneaddon/issues
-- Source Code: https://github.com/collective/example.dockerizedploneaddon
-- Documentation: https://docs.plone.org/foo/bar
 
 
-Support
--------
+"Dockerize" and distribute
+--------------------------------
+Do this by adding a `docker.cfg` file and a `Dockerfile` to your addon folder
 
-If you are having issues, please let us know.
-We have a mailing list located at: project@example.com
+Contents of docker.cfg:
+::
+
+      [buildout]
+      extends = buildout.cfg
+      eggs +=
+              example.dockerizedploneaddon
+              user=admin:admin
+              develop = src/example.dockerizedploneaddon
+              [versions]
+              # plone.api = 1.5.1
+              [instance_base]
+              resources = ${buildout:directory}/resources
 
 
-License
--------
+Contents of Dockerfile:
+::
 
-The project is licensed under the GPLv2.
+     FROM plone:5
+
+     COPY docker.cfg /plone/instance/
+     COPY --chown=plone:plone . /plone/instance/src/example.dockerizedploneaddon
+     RUN gosu plone buildout -c docker.cfg 
+
+
+Build your container
+```````````````````````
+Once you have those two files run `docker build .`
+Here are some shortcut commands for building and launching a container
+::
+
+      imageid=$(docker build .)
+      container=$(docker run -d -p 8080:8080 $imageid)
+
+
+
+What next
+-----------
+Register your repository with docker hub so that it automatically builds new images every time you make changes.
+
+
+
