@@ -95,5 +95,5 @@ Now try it with some sample data
 
 When you visit ``localhost:8080`` you should see something like this:
 
-.. image:: https://github.com/alteroo/example.dockerizedploneaddon/releases/download/v00data/customisedplonescreen.png
+.. image:: customisedplonescreen.png
 
