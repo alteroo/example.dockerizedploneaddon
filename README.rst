@@ -6,7 +6,7 @@ The example image uses a public docker registry stored at _`docker hub <https://
 
 Assumptions
 =============
-You have `plonecli <https://github.com/plone/plonecli>`_. installed.
+You have `plonecli <https://github.com/plone/plonecli>`_ installed.
 
 
 How we created this addon
