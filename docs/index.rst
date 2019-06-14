@@ -1,0 +1,5 @@
+============================
+example.dockerizedploneaddon
+============================
+
+User documentation
