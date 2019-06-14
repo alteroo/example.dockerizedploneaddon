@@ -1,8 +1,5 @@
-With a little customisation, you can easily extend the base `plone.docker`_ image
+With a little customisation, you can easily extend the base `plone.docker <https://github.com/plone/plone.docker>`_ image
 with custom addon code. This is a demo of how it might be used.
-
-
-.. _plone.docker: https://github.com/plone/plone.docker
 
 Note: This addon doesn't do much and is mostly to demonstrate common ways of using the plone.docker image with a Plone addon.
 The example image uses a public docker registry stored at `docker hub <https://hub.docker.com>`_. Depending on your usecase you may need to set up a private docker registry.
@@ -89,7 +86,7 @@ Register your docker image in a docker registry (e.g. docker hub)
 `````````````````````````````````````````````````````````````````````````
 Once you're confident that your addon has been configured properly for Docker, you can register it
 with a container registry. Below are the steps for doing so with docker hub.
-Register your repository with _`docker hub <http://hub.docker.com>`_ and connect it to your repository github or bitbucket so that it automatically builds new images every time you make changes.
+Register your repository with `docker hub <http://hub.docker.com>`_ and connect it to your repository github or bitbucket so that it automatically builds new images every time you make changes.
 
 What next
 -----------
@@ -119,10 +116,11 @@ When you visit ``localhost:8080/Plone`` you should see a slightly customised Plo
 How to prepare a data tarball
 ```````````````````````````````
 Generally, your data tarball should ONLY contain a ``blobstorage`` folder and 
-a `filestorage`` folder with a single Data.fs. In a standard buildout directory, the data files and folders
+a ``filestorage`` folder with a single Data.fs. In a standard buildout directory, the data files and folders
 are typically  located under the ``var`` directory. Our docker image stores the same data files and folders
 under the ``/data`` directory of the container.
 ::
+
   ├── blobstorage
   │   └── tmp
   ├── filestorage
@@ -135,3 +133,15 @@ under the ``/data`` directory of the container.
   └── log (optional)
       ├── instance.log
       └── instance-Z2.log
+
+1. Move the blobstorage and filestorage folder into a data folder
+2. Be sure to remove the extra index, lock and tmp files (Data.fs.index, Data.fs.lock, Data.fs.tmp)
+
+Your data folder should have this structure::
+
+ data
+  ├── blobstorage
+  │   └── tmp
+  └── filestorage
+      └── Data.fs
+  
